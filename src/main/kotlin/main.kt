@@ -15,9 +15,9 @@ fun main() {
         reposts = Reposts(1, true),
         views = Views(1),
         postType = "post",
-        postSource = PostSource("vk","android","profile_activity","vk.com"),
-        attachment = arrayOf(Attachment.EventAttachment(event1),Attachment.DocumentAttachment(doc1)),
-        geo = Geo("vkType","55.667950, 35.369341","home"),
+        postSource = PostSource("vk", "android", "profile_activity", "vk.com"),
+        attachment = arrayOf(Attachment.EventAttachment(event1), Attachment.DocumentAttachment(doc1)),
+        geo = Geo("vkType", "55.667950, 35.369341", "home"),
         signerId = 1,
         copyHistory = null,
         canPin = true,
@@ -45,9 +45,9 @@ fun main() {
         reposts = Reposts(1, true),
         views = Views(1),
         postType = "post",
-        postSource = PostSource("vk","android","profile_activity","vk.com"),
+        postSource = PostSource("vk", "android", "profile_activity", "vk.com"),
         attachment = arrayOf(Attachment.NoteAttachment(note1)),
-        geo = Geo("vkType","55.667950, 35.369341","home"),
+        geo = Geo("vkType", "55.667950, 35.369341", "home"),
         signerId = 1,
         copyHistory = null,
         canPin = true,
@@ -75,9 +75,9 @@ fun main() {
         reposts = Reposts(4, true),
         views = Views(4),
         postType = "post",
-        postSource = PostSource("vk","android","profile_activity","vk.com"),
-        attachment = arrayOf(Attachment.AudioAttachment(audio1),Attachment.StickerAttachment(sticker1)),
-        geo = Geo("vkType","55.667950, 35.369341","home"),
+        postSource = PostSource("vk", "android", "profile_activity", "vk.com"),
+        attachment = arrayOf(Attachment.AudioAttachment(audio1), Attachment.StickerAttachment(sticker1)),
+        geo = Geo("vkType", "55.667950, 35.369341", "home"),
         signerId = 4,
         copyHistory = null,
         canPin = true,
@@ -106,9 +106,9 @@ fun main() {
         reposts = Reposts(4, true),
         views = Views(4),
         postType = "post",
-        postSource = PostSource("vk","android","profile_activity","vk.com"),
+        postSource = PostSource("vk", "android", "profile_activity", "vk.com"),
         attachment = arrayOf(Attachment.NoteAttachment(note1)),
-        geo = Geo("vkType","55.667950, 35.369341","home"),
+        geo = Geo("vkType", "55.667950, 35.369341", "home"),
         signerId = 4,
         copyHistory = null,
         canPin = true,
@@ -173,9 +173,11 @@ object WallService {
         }
         return post in posts
     }
-    fun print() {
+
+    fun print(): Boolean {
         for (post in posts) {
             println(post)
         }
+        return true
     }
 }

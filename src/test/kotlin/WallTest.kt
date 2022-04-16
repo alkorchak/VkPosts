@@ -204,4 +204,13 @@ class WallTest {
         println(result)
         assertEquals(true, result)
     }
+
+
+
+    @Test
+    fun printTest() {
+        val result = WallService.print()
+        assertTrue(result)
+    }
+
 }
