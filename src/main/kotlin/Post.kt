@@ -14,7 +14,11 @@ data class Post(
     val reposts: Reposts,
     val views: Views,
     val postType: String,
+    val postSource: PostSource,
+    val attachment: Array<Attachment>,
+    val geo: Geo,
     val signerId: Int,
+    val copyHistory: Array<Post>?,
     val canPin: Boolean,
     val canDelete: Boolean,
     val canEdit: Boolean,
@@ -61,3 +65,17 @@ data class Donut(
 data class Placeholder(
     val someData: String
 )
+
+data class PostSource(
+    val type: String,
+    val platform: String,
+    val data: String,
+    val url: String
+)
+
+data class Geo(
+    val type: String,
+    val coordinates: String,
+    val place: String
+)
+

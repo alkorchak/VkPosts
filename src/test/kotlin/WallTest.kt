@@ -22,7 +22,17 @@ class WallTest {
             reposts = Reposts(1, true),
             views = Views(1),
             postType = "post",
+            postSource = PostSource("vk","android","profile_activity","vk.com"),
+            attachment = arrayOf(
+                Attachment.AudioAttachment(audio1),
+                Attachment.StickerAttachment(sticker1),
+                Attachment.EventAttachment(event1),
+                Attachment.NoteAttachment(note1),
+                Attachment.DocumentAttachment(doc1)
+            ),
+            geo = Geo("vkType","55.667950, 35.369341","home"),
             signerId = 1,
+            copyHistory = null,
             canPin = true,
             canDelete = true,
             canEdit = true,
@@ -54,7 +64,17 @@ class WallTest {
             reposts = Reposts(1, true),
             views = Views(1),
             postType = "post",
+            postSource = PostSource("vk","android","profile_activity","vk.com"),
+            attachment = arrayOf(
+                Attachment.AudioAttachment(audio1),
+                Attachment.StickerAttachment(sticker1),
+                Attachment.EventAttachment(event1),
+                Attachment.NoteAttachment(note1),
+                Attachment.DocumentAttachment(doc1)
+            ),
+            geo = Geo("vkType","55.667950, 35.369341","home"),
             signerId = 1,
+            copyHistory = null,
             canPin = true,
             canDelete = true,
             canEdit = true,
@@ -80,7 +100,16 @@ class WallTest {
             reposts = Reposts(4, true),
             views = Views(4),
             postType = "post",
+            postSource = PostSource("vk","android","profile_activity","vk.com"),
+            attachment = arrayOf(
+                Attachment.AudioAttachment(audio1),
+                Attachment.StickerAttachment(sticker1),
+                Attachment.NoteAttachment(note1),
+                Attachment.DocumentAttachment(doc1)
+            ),
+            geo = Geo("vkType","55.667950, 35.369341","home"),
             signerId = 4,
+            copyHistory = null,
             canPin = true,
             canDelete = true,
             canEdit = true,
@@ -114,7 +143,17 @@ class WallTest {
             reposts = Reposts(1, true),
             views = Views(1),
             postType = "post",
+            postSource = PostSource("vk","android","profile_activity","vk.com"),
+            attachment = arrayOf(
+                Attachment.AudioAttachment(audio1),
+                Attachment.StickerAttachment(sticker1),
+                Attachment.EventAttachment(event1),
+                Attachment.NoteAttachment(note1),
+                Attachment.DocumentAttachment(doc1)
+            ),
+            geo = Geo("vkType","55.667950, 35.369341","home"),
             signerId = 1,
+            copyHistory = null,
             canPin = true,
             canDelete = true,
             canEdit = true,
@@ -140,7 +179,17 @@ class WallTest {
             reposts = Reposts(4, true),
             views = Views(4),
             postType = "post",
+            postSource = PostSource("vk","android","profile_activity","vk.com"),
+            attachment = arrayOf(
+                Attachment.AudioAttachment(audio1),
+                Attachment.StickerAttachment(sticker1),
+                Attachment.EventAttachment(event1),
+                Attachment.NoteAttachment(note1),
+                Attachment.DocumentAttachment(doc1)
+            ),
+            geo = Geo("vkType","55.667950, 35.369341","home"),
             signerId = 4,
+            copyHistory = null,
             canPin = true,
             canDelete = true,
             canEdit = true,
@@ -155,4 +204,13 @@ class WallTest {
         println(result)
         assertEquals(true, result)
     }
+
+
+
+    @Test
+    fun printTest() {
+        val result = WallService.print()
+        assertTrue(result)
+    }
+
 }
