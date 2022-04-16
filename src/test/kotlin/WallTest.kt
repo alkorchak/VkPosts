@@ -23,6 +23,13 @@ class WallTest {
             views = Views(1),
             postType = "post",
             postSource = PostSource("vk","android","profile_activity","vk.com"),
+            attachment = arrayOf(
+                Attachment.AudioAttachment(audio1),
+                Attachment.StickerAttachment(sticker1),
+                Attachment.EventAttachment(event1),
+                Attachment.NoteAttachment(note1),
+                Attachment.DocumentAttachment(doc1)
+            ),
             geo = Geo("vkType","55.667950, 35.369341","home"),
             signerId = 1,
             copyHistory = null,
@@ -58,6 +65,13 @@ class WallTest {
             views = Views(1),
             postType = "post",
             postSource = PostSource("vk","android","profile_activity","vk.com"),
+            attachment = arrayOf(
+                Attachment.AudioAttachment(audio1),
+                Attachment.StickerAttachment(sticker1),
+                Attachment.EventAttachment(event1),
+                Attachment.NoteAttachment(note1),
+                Attachment.DocumentAttachment(doc1)
+            ),
             geo = Geo("vkType","55.667950, 35.369341","home"),
             signerId = 1,
             copyHistory = null,
@@ -87,6 +101,12 @@ class WallTest {
             views = Views(4),
             postType = "post",
             postSource = PostSource("vk","android","profile_activity","vk.com"),
+            attachment = arrayOf(
+                Attachment.AudioAttachment(audio1),
+                Attachment.StickerAttachment(sticker1),
+                Attachment.NoteAttachment(note1),
+                Attachment.DocumentAttachment(doc1)
+            ),
             geo = Geo("vkType","55.667950, 35.369341","home"),
             signerId = 4,
             copyHistory = null,
@@ -124,6 +144,13 @@ class WallTest {
             views = Views(1),
             postType = "post",
             postSource = PostSource("vk","android","profile_activity","vk.com"),
+            attachment = arrayOf(
+                Attachment.AudioAttachment(audio1),
+                Attachment.StickerAttachment(sticker1),
+                Attachment.EventAttachment(event1),
+                Attachment.NoteAttachment(note1),
+                Attachment.DocumentAttachment(doc1)
+            ),
             geo = Geo("vkType","55.667950, 35.369341","home"),
             signerId = 1,
             copyHistory = null,
@@ -153,6 +180,13 @@ class WallTest {
             views = Views(4),
             postType = "post",
             postSource = PostSource("vk","android","profile_activity","vk.com"),
+            attachment = arrayOf(
+                Attachment.AudioAttachment(audio1),
+                Attachment.StickerAttachment(sticker1),
+                Attachment.EventAttachment(event1),
+                Attachment.NoteAttachment(note1),
+                Attachment.DocumentAttachment(doc1)
+            ),
             geo = Geo("vkType","55.667950, 35.369341","home"),
             signerId = 4,
             copyHistory = null,
