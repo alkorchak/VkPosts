@@ -9,20 +9,24 @@ fun main() {
         replyOwnerId = 1,
         replyPostId = 1,
         friendsOnly = false,
-        comments = Comment(1, true, true, true, true),
+        comments = null,
         copyright = Copyright(1, "testLink", "testName", "testType"),
         likes = Likes(1, true, true, true),
         reposts = Reposts(1, true),
         views = Views(1),
         postType = "post",
+        postSource = PostSource("vk", "android", "profile_activity", "vk.com"),
+        attachment = arrayOf(Attachment.EventAttachment(event1), Attachment.DocumentAttachment(doc1)),
+        geo = Geo("vkType", "55.667950, 35.369341", "home"),
         signerId = 1,
+        copyHistory = null,
         canPin = true,
         canDelete = true,
         canEdit = true,
         isPinned = false,
         markedAsAds = false,
         isFavorite = false,
-        donut = Donut(false, 1, Placeholder("testPlaceholder"), true, "all"),
+        donut = Donut(false, Placeholder("не дон")),
         postponedId = 1
     )
     val original2 = Post(
@@ -35,20 +39,24 @@ fun main() {
         replyOwnerId = 1,
         replyPostId = 1,
         friendsOnly = false,
-        comments = Comment(1, true, true, true, true),
+        comments = null,
         copyright = Copyright(1, "testLink", "testName", "testType"),
         likes = Likes(1, true, true, true),
         reposts = Reposts(1, true),
         views = Views(1),
         postType = "post",
+        postSource = PostSource("vk", "android", "profile_activity", "vk.com"),
+        attachment = arrayOf(Attachment.NoteAttachment(note1)),
+        geo = Geo("vkType", "55.667950, 35.369341", "home"),
         signerId = 1,
+        copyHistory = null,
         canPin = true,
         canDelete = true,
         canEdit = true,
         isPinned = false,
         markedAsAds = false,
         isFavorite = false,
-        donut = Donut(false, 1, Placeholder("testPlaceholder"), true, "all"),
+        donut = Donut(false, Placeholder("не дон")),
         postponedId = 1
     )
     val forUpdate = Post(
@@ -61,20 +69,24 @@ fun main() {
         replyOwnerId = 2,
         replyPostId = 2,
         friendsOnly = true,
-        comments = Comment(4, true, true, true, true),
+        comments = null,
         copyright = Copyright(4, "testLink", "testName", "testType"),
         likes = Likes(4, true, true, true),
         reposts = Reposts(4, true),
         views = Views(4),
         postType = "post",
+        postSource = PostSource("vk", "android", "profile_activity", "vk.com"),
+        attachment = arrayOf(Attachment.AudioAttachment(audio1), Attachment.StickerAttachment(sticker1)),
+        geo = Geo("vkType", "55.667950, 35.369341", "home"),
         signerId = 4,
+        copyHistory = null,
         canPin = true,
         canDelete = true,
         canEdit = true,
         isPinned = false,
         markedAsAds = true,
         isFavorite = false,
-        donut = Donut(false, 4, Placeholder("testPlaceholder"), true, "all"),
+        donut = Donut(false, Placeholder("не дон")),
         postponedId = 4
     )
 
@@ -88,20 +100,24 @@ fun main() {
         replyOwnerId = 2,
         replyPostId = 2,
         friendsOnly = true,
-        comments = Comment(4, true, true, true, true),
+        comments = null,
         copyright = Copyright(4, "testLink", "testName", "testType"),
         likes = Likes(4, true, true, true),
         reposts = Reposts(4, true),
         views = Views(4),
         postType = "post",
+        postSource = PostSource("vk", "android", "profile_activity", "vk.com"),
+        attachment = arrayOf(Attachment.NoteAttachment(note1)),
+        geo = Geo("vkType", "55.667950, 35.369341", "home"),
         signerId = 4,
+        copyHistory = null,
         canPin = true,
         canDelete = true,
         canEdit = true,
         isPinned = false,
         markedAsAds = true,
         isFavorite = false,
-        donut = Donut(false, 4, Placeholder("testPlaceholder"), true, "all"),
+        donut = Donut(false, Placeholder("не дон")),
         postponedId = 4
     )
     WallService.add(original)
@@ -112,11 +128,14 @@ fun main() {
     WallService.print()
     WallService.update(forUpdate2)
     WallService.print()
+
+    println(WallService.createComment(Comment(postID = 1, id = 1, text = "Я первый !")))
 }
 
 object WallService {
     private var nextId = 0
     private var posts = emptyArray<Post>()
+    private var comments = emptyArray<Comment>()
 
     fun add(post: Post): Post {
         nextId += 1
@@ -140,7 +159,10 @@ object WallService {
                     reposts = post.reposts,
                     views = post.views,
                     postType = post.postType,
+                    postSource = post.postSource,
+                    geo = post.geo,
                     signerId = post.signerId,
+                    copyHistory = post.copyHistory,
                     canPin = post.canPin,
                     canDelete = post.canDelete,
                     canEdit = post.canEdit,
@@ -154,9 +176,37 @@ object WallService {
         }
         return post in posts
     }
-    fun print() {
+
+    fun print(): Boolean {
         for (post in posts) {
             println(post)
         }
+        return true
     }
+
+    fun printComments(): Boolean {
+        for (comment in comments) {
+            println(comment)
+        }
+        return true
+    }
+
+    fun findPostByID(requiredID: Int): Post? {
+        var post: Post? = null
+        for ((index, item) in posts.withIndex()) {
+            when (item.id) {
+                requiredID -> post = posts[index]
+            }
+        }
+        return post
+    }
+
+    fun createComment(comment: Comment): Comment {
+        findPostByID(comment.postID) ?: throw PostNotFoundException("Не найден пост с номером ${comment.postID} ")
+        comments += comment
+        return comment
+    }
+
+
+
 }

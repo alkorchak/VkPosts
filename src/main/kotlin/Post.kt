@@ -8,13 +8,17 @@ data class Post(
     val replyOwnerId: Int,
     val replyPostId: Int,
     val friendsOnly: Boolean,
-    val comments: Comment,
+    val comments: Comment?,
     val copyright: Copyright,
     val likes: Likes,
     val reposts: Reposts,
     val views: Views,
     val postType: String,
+    val postSource: PostSource,
+    val attachment: Array<Attachment>,
+    val geo: Geo,
     val signerId: Int,
+    val copyHistory: Array<Post>?,
     val canPin: Boolean,
     val canDelete: Boolean,
     val canEdit: Boolean,
@@ -25,13 +29,7 @@ data class Post(
     val postponedId: Int
 )
 
-data class Comment(
-    val count: Int,
-    val canPost: Boolean,
-    val groupsCanPost: Boolean,
-    val canClose: Boolean,
-    val canOpen: Boolean
-)
+
 data class Copyright(
     val id: Int,
     val link: String,
@@ -53,11 +51,24 @@ data class Views(
 )
 data class Donut(
     val isDonut: Boolean,
-    val paidDuration: Int,
-    val placeholder: Placeholder,
-    val canPublishFreeCopy: Boolean,
-    val editMode: String
+    val placeholder: Placeholder
+
+
 )
 data class Placeholder(
     val someData: String
 )
+
+data class PostSource(
+    val type: String,
+    val platform: String,
+    val data: String,
+    val url: String
+)
+
+data class Geo(
+    val type: String,
+    val coordinates: String,
+    val place: String
+)
+

@@ -16,20 +16,30 @@ class WallTest {
             replyOwnerId = 1,
             replyPostId = 1,
             friendsOnly = false,
-            comments = Comment(1, true, true, true, true),
+            comments = null,
             copyright = Copyright(1, "testLink", "testName", "testType"),
             likes = Likes(1, true, true, true),
             reposts = Reposts(1, true),
             views = Views(1),
             postType = "post",
+            postSource = PostSource("vk","android","profile_activity","vk.com"),
+            attachment = arrayOf(
+                Attachment.AudioAttachment(audio1),
+                Attachment.StickerAttachment(sticker1),
+                Attachment.EventAttachment(event1),
+                Attachment.NoteAttachment(note1),
+                Attachment.DocumentAttachment(doc1)
+            ),
+            geo = Geo("vkType","55.667950, 35.369341","home"),
             signerId = 1,
+            copyHistory = null,
             canPin = true,
             canDelete = true,
             canEdit = true,
             isPinned = false,
             markedAsAds = false,
             isFavorite = false,
-            donut = Donut(false, 1, Placeholder("testPlaceholder"), true, "all"),
+            donut = Donut(false, Placeholder("не дон")),
             postponedId = 1
         )
         val service3 = WallService
@@ -48,20 +58,30 @@ class WallTest {
             replyOwnerId = 1,
             replyPostId = 1,
             friendsOnly = false,
-            comments = Comment(1, true, true, true, true),
+            comments = null,
             copyright = Copyright(1, "testLink", "testName", "testType"),
             likes = Likes(1, true, true, true),
             reposts = Reposts(1, true),
             views = Views(1),
             postType = "post",
+            postSource = PostSource("vk","android","profile_activity","vk.com"),
+            attachment = arrayOf(
+                Attachment.AudioAttachment(audio1),
+                Attachment.StickerAttachment(sticker1),
+                Attachment.EventAttachment(event1),
+                Attachment.NoteAttachment(note1),
+                Attachment.DocumentAttachment(doc1)
+            ),
+            geo = Geo("vkType","55.667950, 35.369341","home"),
             signerId = 1,
+            copyHistory = null,
             canPin = true,
             canDelete = true,
             canEdit = true,
             isPinned = false,
             markedAsAds = false,
             isFavorite = false,
-            donut = Donut(false, 1, Placeholder("testPlaceholder"), true, "all"),
+            donut = Donut(false, Placeholder("не дон")),
             postponedId = 1
         )
         val forUpdate = Post(
@@ -74,20 +94,29 @@ class WallTest {
             replyOwnerId = 2,
             replyPostId = 2,
             friendsOnly = true,
-            comments = Comment(4, true, true, true, true),
+            comments = null,
             copyright = Copyright(4, "testLink", "testName", "testType"),
             likes = Likes(4, true, true, true),
             reposts = Reposts(4, true),
             views = Views(4),
             postType = "post",
+            postSource = PostSource("vk","android","profile_activity","vk.com"),
+            attachment = arrayOf(
+                Attachment.AudioAttachment(audio1),
+                Attachment.StickerAttachment(sticker1),
+                Attachment.NoteAttachment(note1),
+                Attachment.DocumentAttachment(doc1)
+            ),
+            geo = Geo("vkType","55.667950, 35.369341","home"),
             signerId = 4,
+            copyHistory = null,
             canPin = true,
             canDelete = true,
             canEdit = true,
             isPinned = false,
             markedAsAds = true,
             isFavorite = false,
-            donut = Donut(false, 4, Placeholder("testPlaceholder"), true, "all"),
+            donut = Donut(false, Placeholder("не дон")),
             postponedId = 4
         )
         WallService.add(original)
@@ -108,20 +137,30 @@ class WallTest {
             replyOwnerId = 1,
             replyPostId = 1,
             friendsOnly = false,
-            comments = Comment(1, true, true, true, true),
+            comments = null,
             copyright = Copyright(1, "testLink", "testName", "testType"),
             likes = Likes(1, true, true, true),
             reposts = Reposts(1, true),
             views = Views(1),
             postType = "post",
+            postSource = PostSource("vk","android","profile_activity","vk.com"),
+            attachment = arrayOf(
+                Attachment.AudioAttachment(audio1),
+                Attachment.StickerAttachment(sticker1),
+                Attachment.EventAttachment(event1),
+                Attachment.NoteAttachment(note1),
+                Attachment.DocumentAttachment(doc1)
+            ),
+            geo = Geo("vkType","55.667950, 35.369341","home"),
             signerId = 1,
+            copyHistory = null,
             canPin = true,
             canDelete = true,
             canEdit = true,
             isPinned = false,
             markedAsAds = false,
             isFavorite = false,
-            donut = Donut(false, 1, Placeholder("testPlaceholder"), true, "all"),
+            donut = Donut(false, Placeholder("не дон")),
             postponedId = 1
         )
         val forUpdate2 = Post(
@@ -134,20 +173,30 @@ class WallTest {
             replyOwnerId = 2,
             replyPostId = 2,
             friendsOnly = true,
-            comments = Comment(4, true, true, true, true),
+            comments = null,
             copyright = Copyright(4, "testLink", "testName", "testType"),
             likes = Likes(4, true, true, true),
             reposts = Reposts(4, true),
             views = Views(4),
             postType = "post",
+            postSource = PostSource("vk","android","profile_activity","vk.com"),
+            attachment = arrayOf(
+                Attachment.AudioAttachment(audio1),
+                Attachment.StickerAttachment(sticker1),
+                Attachment.EventAttachment(event1),
+                Attachment.NoteAttachment(note1),
+                Attachment.DocumentAttachment(doc1)
+            ),
+            geo = Geo("vkType","55.667950, 35.369341","home"),
             signerId = 4,
+            copyHistory = null,
             canPin = true,
             canDelete = true,
             canEdit = true,
             isPinned = false,
             markedAsAds = true,
             isFavorite = false,
-            donut = Donut(false, 4, Placeholder("testPlaceholder"), true, "all"),
+            donut = Donut(false, Placeholder("не дон")),
             postponedId = 4
         )
         WallService.add(original2)
@@ -155,4 +204,18 @@ class WallTest {
         println(result)
         assertEquals(true, result)
     }
+
+
+
+    @Test
+    fun printTest() {
+        val result = WallService.print()
+        assertTrue(result)
+    }
+
+    @Test(expected = PostNotFoundException::class)
+    fun shouldThrow() {
+        WallService.createComment(Comment(postID = 7, id = 1, text = "Я первый !"))
+    }
+
 }
