@@ -11,3 +11,4 @@ data class Comment(
     val parents_stack: Array<Int>? = null,
     val thread: Thread? = null
 )
+
